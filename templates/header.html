@@ -1,0 +1,22 @@
+{% load staticfiles %}
+<!--把导航栏写出header.html-->
+<div class="container">
+    <nav class="navbar navbar-default" role="navigation"> 
+        <div class="navbar-header">
+            <a class="navbar-brand" href="http://www.itdiffer.com"> 
+                <img src="{% static '/images/logo.png' %}" width="100px">
+            </a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav" role="navigation">
+                <li><a href="{% url 'index:blog_title' %}">博客</a></li>
+                
+
+            </ul>
+           
+        </div>
+    </nav>
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script> 
+<script src="{% static 'js/bootstrap.js' %}"></script>
