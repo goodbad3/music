@@ -13,5 +13,8 @@ urlpatterns = [
     path('password-reset-done/', auth_views.PasswordResetDoneView.as_view(template_name="user/password_reset_done.html"), name='password_reset_done'),
     path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="user/password_reset_confirm.html", success_url='/user/password-reset-complete/'), name="password_reset_confirm"),#视图函数也内置
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='user/password_reset_complete.html'), name='password_reset_complete'),
-
+    path('my-information/', views.myself, name="my_information"),
+    path('edit-my-information/', views.myself_edit, name="edit_my_information"),
+    path('my-image/', views.my_image, name="my_image"),
+  
 ]

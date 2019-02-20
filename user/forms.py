@@ -31,4 +31,16 @@ class UserProfileForm(forms.ModelForm):
         widgets = {
             'phone': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'1900/12/12'}),
             'birth': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'11位号码'}),
-        }        
+        }  
+
+
+class UserInfoForm(forms.ModelForm):
+    class Meta:
+        model = UserInfo
+        fields = ("school", "company", "profession", "address", "aboutme", 'photo')
+
+
+class UserForm(forms.ModelForm): 
+    class Meta:
+        model = User 
+        fields = ("email",)      

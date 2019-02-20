@@ -1,5 +1,7 @@
 {% load staticfiles %}
-<!--把导航栏写出header.html-->
+<!--声明引入静态文件的标签，只有使用它，才能使用{% static '/images/logo.png' %}，而不是用硬编码的方式写入图片地址-->
+<!--% static %}用来引入某个静态文件-->
+<!--导航条-->
 <div class="container">
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="navbar-header">
@@ -9,14 +11,36 @@
         </div>
         <div>
             <ul class="nav navbar-nav" role="navigation">
+  
                 <li><a href="{% url 'index:blog_title' %}">博客</a></li>
-                
 
             </ul>
-           
+            <ul class="nav navbar-nav navbar-right" style="margin-right:10px"> 
+
+                {% if user.is_authenticated %}
+
+                <li>
+                    <div class="dropdown" style="margin-top:8px">
+                        <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu' data-toggle='dropdown'>{{ user.username }}
+                            <span class='caret'></span> 
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'user:password_change' %}">修改密码</a></li>
+                            <li><a href="{% url 'user:my_information' %}">个人信息</a></li>
+   
+                        </ul> 
+                    </div>
+                </li>
+                <li><a href="{% url 'user:user_logout' %}">退出</a></li>
+
+                {% else %}
+                <li><a href="{% url 'user:user_login' %}">登录</a></li>
+
+                <li><a href="{% url 'user:user_register' %}">注册</a></li>
+                {% endif %}
+            </ul> 
         </div>
     </nav>
 </div>
-
 <script src="{% static 'js/jquery.js' %}"></script> 
 <script src="{% static 'js/bootstrap.js' %}"></script>
