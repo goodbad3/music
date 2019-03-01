@@ -1,7 +1,5 @@
 {% load staticfiles %}
-<!--声明引入静态文件的标签，只有使用它，才能使用{% static '/images/logo.png' %}，而不是用硬编码的方式写入图片地址-->
-<!--% static %}用来引入某个静态文件-->
-<!--导航条-->
+
 <div class="container">
     <nav class="navbar navbar-default" role="navigation"> 
         <div class="navbar-header">
@@ -36,7 +34,9 @@
                 {% else %}
                 <li><a href="{% url 'user:user_login' %}">登录</a></li>
 
-                <li><a href="{% url 'registration_register' %}">注册</a></li>
+                <li><a href="{% url 'registration_register' %}">注册1</a></li>
+                <li><a href="{% url 'user:user_register2' %}">快捷注册</a></li>
+
                 {% endif %}
             </ul> 
         </div>
