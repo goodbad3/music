@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index',
     'user',
+    'registration',
+    'article',
 ]
-
+ACCOUNT_ACTIVATION_DAYS = 7# 一周的激活时间; 你有可能或者肯定会使用一个不同的数值
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -134,3 +136,8 @@ EMAIL_HOST_PASSWORD = "yhmnqcbdqxwzbdia"
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = "573908896@qq.com"
+
+REDIS_HOST = 'localhost' 
+REDIS_PORT = 6379 
+REDIS_DB = 0
+

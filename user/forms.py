@@ -14,7 +14,7 @@ class RegistrationForm(forms.ModelForm):
         model = User
         fields = ("username", "email")
         widgets = {
-            'email': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'邮箱'}),
+            'email': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'邮箱','type':'email'}),
             'username': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'用户名'}),
         }
 
@@ -29,8 +29,8 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ("phone", "birth")
         widgets = {
-            'phone': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'1900/12/12'}),
-            'birth': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'11位号码'}),
+            'phone': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'placeholder':'11位号码','type':'tel'}),
+            'birth': forms.widgets.TextInput(attrs={'class': 'txt tabInput', 'type':'date'}),
         }  
 
 
