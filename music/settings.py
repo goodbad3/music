@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'user',
     'registration',
     'article',
+    'course',
 ]
 ACCOUNT_ACTIVATION_DAYS = 7# 一周的激活时间; 你有可能或者肯定会使用一个不同的数值
 MIDDLEWARE = [

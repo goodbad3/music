@@ -23,4 +23,6 @@ urlpatterns = [
     path('user/', include('user.urls', namespace='user')),
     path('user/',include('registration.backends.default.urls')),
     path('article/', include('article.urls', namespace='article')),
+    path('course/', include('course.urls', namespace='course')),
+
 ]
