@@ -102,3 +102,10 @@ class DetailLessonView(LoginRequiredMixin, TemplateResponseMixin, View):
         return self.render_to_response({"lesson":lesson})
 
 
+class StudentListLessonView(ListLessonsView):
+    template_name = "course/slist_lessons.html"
+    def post(self, request, *args, **kwargs):
+        course = Course.objects.get(id=kwargs['course_id']) 
+
+        course.student.add(self.request.user)
+        return HttpResponse("ok")

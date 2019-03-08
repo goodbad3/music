@@ -1,7 +1,7 @@
 from django.urls import path
 from django.views.generic import TemplateView 
 from .views import AboutView, CourseListView,ManageCourseListView,CreateCourseView,DeleteCourseView,UpdateCourseView,\
-CreateLessonView,ListLessonsView,DetailLessonView
+CreateLessonView,ListLessonsView,DetailLessonView,StudentListLessonView
 
 app_name = "course" 
 urlpatterns = [ 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('create-lesson/', CreateLessonView.as_view(), name="create_lesson"),
     path('list-lessons/<int:course_id>/', ListLessonsView.as_view(), name="list_lessons"),
     path('detail-lesson/<int:lesson_id>/', DetailLessonView.as_view(), name="detail_lesson"),
+    path('lessons-list/<int:course_id>/', StudentListLessonView.as_view(), name="lessons_list"),
 
     ]
 
