@@ -43,7 +43,7 @@ class CreateCourseView(UserCourseMixin, CreateView):
             new_course.user = self.request.user
             new_course.save()
             return redirect("course:manage_course") 
-        return self.render_to_response({"form":form})
+        ##return self.render_to_response({"form":form})
 
 
 class DeleteCourseView(UserCourseMixin, DeleteView):
@@ -82,7 +82,7 @@ class CreateLessonView(LoginRequiredMixin, View):
             new_lesson.user = self.request.user 
             new_lesson.save()
             return redirect("course:manage_course")
-        return self.render_to_response({"form":form})
+        ##return self.render_to_response({"form":form})
 
 class ListLessonsView(LoginRequiredMixin, TemplateResponseMixin, View): 
     login_url = "/account/login/"

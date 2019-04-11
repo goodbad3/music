@@ -42,7 +42,16 @@ INSTALLED_APPS = [
     'registration',
     'article',
     'course',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.weibo',
+    'crispy_forms',    
 ]
+SITE_ID = 1
 ACCOUNT_ACTIVATION_DAYS = 7# 一周的激活时间; 你有可能或者肯定会使用一个不同的数值
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,6 +138,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGOUT_ON_GET = True
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_HOST = 'smtp.qq.com' 
